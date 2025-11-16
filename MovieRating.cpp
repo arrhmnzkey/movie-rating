@@ -10,3 +10,15 @@ void TambahFilm(string nama[], string genre[], float rating[], int &jumlah) {
         cout << "Data sudah penuh!\n";
         return;
     }
+
+    cout << "Masukkan nama film   : ";
+    cin.ignore();
+    getline(cin, nama[jumlah]);
+    cout << "Masukkan genre film  : ";
+    getline(cin, genre[jumlah]);
+    cout << "Masukkan rating film : ";
+    cin >> rating[jumlah];
+
+    jumlah++;
+    cout << "Film berhasil ditambahkan!\n";
+}
