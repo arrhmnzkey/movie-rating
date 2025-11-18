@@ -73,6 +73,15 @@ void UrutkanRating(string nama[], string genre[], float rating[], int jumlah) {
     cout << "Data berhasil diurutkan berdasarkan rating (tinggi → rendah).\n";
 }
 
+//sub-program untuk mencari nama film
+int CariFilm(const string nama[], int jumlah, string targetNama) {
+    for (int i = 0; i < jumlah; i++) {
+        if (nama[i] == targetNama)
+            return i;
+    }
+    return -1;
+}
+
 
 int main() {
     string nama[MAX];
