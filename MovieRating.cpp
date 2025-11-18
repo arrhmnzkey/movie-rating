@@ -105,7 +105,21 @@ int main() {
         switch (pilihan) {
             case 1: TambahFilm(nama, genre, rating, jumlah); break;
             case 2: TampilkanFilm(nama, genre, rating, jumlah); break;
-            
+            case 3: UrutkanRating(nama, genre, rating, jumlah); break;
+            case 4: {
+                cin.ignore();
+                string target;
+                cout << "Masukkan nama film yang dicari: ";
+                getline(cin, target);
+                int idx = CariFilm(nama, jumlah, target);
+                if (idx != -1)
+                    cout << "Film ditemukan: " << nama[idx]
+                         << " (" << genre[idx] << ") - "
+                         << rating[idx] << endl;
+                else
+                    cout << "Film tidak ditemukan.\n";
+                break;
+            }
             default: cout << "Pilihan tidak valid!\n";
         }
     } while (pilihan != 7);
