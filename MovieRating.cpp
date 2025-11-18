@@ -59,6 +59,19 @@ void TampilkanFilm(const string nama[], const string genre[], const float rating
     cout << "======================================================\n";
 }
 
+//sub-program untuk mengurutkan rating
+void UrutkanRating(string nama[], string genre[], float rating[], int jumlah) {
+    for (int i = 0; i < jumlah - 1; i++) {
+        for (int j = 0; j < jumlah - i - 1; j++) {
+            if (rating[j] < rating[j + 1]) {
+                swap(rating[j], rating[j + 1]);
+                swap(nama[j], nama[j + 1]);
+                swap(genre[j], genre[j + 1]);
+            }
+        }
+    }
+    cout << "Data berhasil diurutkan berdasarkan rating (tinggi → rendah).\n";
+}
 
 
 int main() {
