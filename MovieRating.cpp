@@ -105,7 +105,8 @@ int main() {
         switch (pilihan) {
             case 1: TambahFilm(nama, genre, rating, jumlah); break;
             case 2: TampilkanFilm(nama, genre, rating, jumlah); break;
-            case 3: UrutkanRating(nama, genre, rating, jumlah); break;
+            case 3: UrutkanRating(nama, genre, rating, jumlah);
+                    TampilkanFilm(nama, genre, rating, jumlah); break;
             case 4: {
                 cin.ignore();
                 string target;
