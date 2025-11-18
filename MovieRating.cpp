@@ -83,19 +83,40 @@ int CariFilm(const string nama[], int jumlah, string targetNama) {
     return -1;
 }
 
-//sub-program untuk tampilkan kategori
 void TampilKategori(const string nama[], const float rating[], int jumlah) {
     if (jumlah == 0) {
-        cout << "Belum ada data film.\n";
+        cout << "===============================================================\n";
+        cout << "            BELUM ADA DATA FILM TERSEDIA\n";
+        cout << "===============================================================\n";
         return;
     }
 
-    cout << "\n==================== KATEGORI RATING ====================n";
+    cout << "\n===============================================================\n";
+    cout << "               KATEGORI RATING FILM\n";
+    cout << "===============================================================\n";
+
+    cout << left 
+         << setw(5)  << "No"
+         << setw(30) << "Nama Film"
+         << setw(12) << "Rating"
+         << "Kategori" << endl;
+
+    cout << "---------------------------------------------------------------\n";
+
     for (int i = 0; i < jumlah; i++) {
-        string kategori = (rating[i] > 5.0) ? "Tinggi" : "Rendah";
-        cout << nama[i] << " - " << rating[i]
-             << " [" << kategori << "]\n";
+        string kategori;
+        if (rating[i] >= 8.0) kategori = "Sangat Tinggi";
+        else if (rating[i] >= 6.0) kategori = "Tinggi";
+        else if (rating[i] >= 4.0) kategori = "Sedang";
+        else kategori = "Rendah";
+
+        cout << left
+             << setw(5)  << i + 1
+             << setw(30) << nama[i]
+             << setw(12) << rating[i]
+             << kategori << endl;
     }
+    cout << "===============================================================\n";
 }
 
 
