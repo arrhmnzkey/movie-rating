@@ -137,6 +137,7 @@ int main() {
                     cout << "Film tidak ditemukan.\n";
                 break;
             }
+            case 5: TampilKategori(nama, rating, jumlah); break;
             default: cout << "Pilihan tidak valid!\n";
         }
     } while (pilihan != 7);
