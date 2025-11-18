@@ -17,10 +17,11 @@ void TambahFilm(string nama[], string genre[], float rating[], int &jumlah) {
     cout << "Berapa data film yang ingin dimasukkan? ";
     cin >> n;
 
+    cin.ignore();
+
     for (int i = 0; i < n; i++) {
         cout << "\nInput film ke-" << (i + 1) << endl;
         cout << "Masukkan nama film   : ";
-        cin.ignore();
         getline(cin, nama[jumlah]);
         cout << "Masukkan genre film  : ";
         getline(cin, genre[jumlah]);
