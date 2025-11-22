@@ -119,6 +119,33 @@ void TampilKategori(const string nama[], const float rating[], int jumlah) {
     cout << "===============================================================\n";
 }
 
+//sub-program menghapus data film
+void HapusFilm(string nama[], string genre[], float rating[], int &jumlah) {
+    if (jumlah == 0) {
+        cout << "Belum ada data untuk dihapus.\n";
+        return;
+    }
+
+    cin.ignore();
+    string target;
+    cout << "Masukkan nama film yang ingin dihapus: ";
+    getline(cin, target);
+
+    int pos = CariFilm(nama, jumlah, target);
+    if (pos == -1) {
+        cout << "Film tidak ditemukan.\n";
+        return;
+    }
+
+    for (int i = pos; i < jumlah - 1; i++) {
+        nama[i] = nama[i + 1];
+        genre[i] = genre[i + 1];
+        rating[i] = rating[i + 1];
+    }
+    jumlah--;
+    cout << "Film \"" << target << "\" berhasil dihapus!\n";
+}
+
 
 int main() {
     string nama[MAX];
@@ -152,13 +179,15 @@ int main() {
                 int idx = CariFilm(nama, jumlah, target);
                 if (idx != -1)
                     cout << "Film ditemukan: " << nama[idx]
-                         << " (" << genre[idx] << ") - "
-                         << rating[idx] << endl;
+                            << " (" << genre[idx] << ") - "
+                            << rating[idx] << endl;
                 else
                     cout << "Film tidak ditemukan.\n";
                 break;
             }
             case 5: TampilKategori(nama, rating, jumlah); break;
+            case 6: HapusFilm(nama, genre, rating, jumlah); break;
+            case 7: cout << "Keluar dari program.\n"; break;
             default: cout << "Pilihan tidak valid!\n";
         }
     } while (pilihan != 7);
