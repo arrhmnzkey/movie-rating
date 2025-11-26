@@ -174,7 +174,7 @@ int main() {
     nama[6] = "Teen Romance";     genre[6] = "Romance";    rating[6] = 4.2;
     nama[7] = "Titanic";          genre[7] = "Romance";    rating[7] = 7.8;
     nama[8] = "Inside Out";       genre[8] = "Animation";  rating[8] = 8.1;
-    nama[9] = "Bad Comedy";       genre[9] = "Comedy";     rating[9] = 2.1;
+    nama[9] = "Bad Comedy";       genre[9] = "Comedy";     rating[9] = 2.4;
     // ====================================================
 
     int pilihan;
