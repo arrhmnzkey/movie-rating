@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-const int MAX = 100;
+const int MAX = 100; 
 
 //sub-program untuk menambahkan film
 void TambahFilm(string nama[], string genre[], float rating[], int &jumlah) {
@@ -74,13 +74,24 @@ void UrutkanRating(string nama[], string genre[], float rating[], int jumlah) {
     cout << "Data berhasil diurutkan berdasarkan rating (tinggi → rendah).\n";
 }
 
+// Fungsi untuk mengubah seluruh huruf dalam string menjadi lowercase
+string toLower(string teks) {
+    for (int i = 0; i < teks.length(); i++) {
+        teks[i] = tolower(teks[i]);
+    }
+    return teks;
+}
+
 //sub-program untuk mencari nama film
 int CariFilm(const string nama[], int jumlah, string targetNama) {
+    targetNama = toLower(targetNama);  
+
     for (int i = 0; i < jumlah; i++) {
-        if (nama[i] == targetNama)
-            return i;
+        if (toLower(nama[i]) == targetNama) {
+            return i;   
+        }
     }
-    return -1;
+    return -1; // tidak ditemukan
 }
 
 void TampilKategori(const string nama[], const float rating[], int jumlah) {
@@ -146,12 +157,26 @@ void HapusFilm(string nama[], string genre[], float rating[], int &jumlah) {
     cout << "Film \"" << target << "\" berhasil dihapus!\n";
 }
 
-
+//Main Program
 int main() {
     string nama[MAX];
     string genre[MAX];
     float rating[MAX];
-    int jumlah = 0;
+    int jumlah = 10;  // karena kita menambah 10 data awal
+
+    // ================== DATA FILM AWAL ==================
+    nama[0] = "Inception";        genre[0] = "Sci-Fi";     rating[0] = 9.0;
+    nama[1] = "Moana";            genre[1] = "Animation";  rating[1] = 7.2;
+    nama[2] = "Interstellar";     genre[2] = "Sci-Fi";     rating[2] = 8.6;
+    nama[3] = "Frozen";           genre[3] = "Animation";  rating[3] = 5.0;
+    nama[4] = "Spider-Man";       genre[4] = "Action";     rating[4] = 6.4;
+    nama[5] = "Horror Night";     genre[5] = "Horror";     rating[5] = 3.5;
+    nama[6] = "Teen Romance";     genre[6] = "Romance";    rating[6] = 4.2;
+    nama[7] = "Titanic";          genre[7] = "Romance";    rating[7] = 7.8;
+    nama[8] = "Inside Out";       genre[8] = "Animation";  rating[8] = 8.1;
+    nama[9] = "Bad Comedy";       genre[9] = "Comedy";     rating[9] = 2.1;
+    // ====================================================
+
     int pilihan;
 
     do {
